@@ -2,22 +2,35 @@
 import Link from "next/link";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Film } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function NotePage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black text-gray-200 p-6 text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black text-gray-200 p-6 text-center overflow-hidden">
       
-      {/* Back Home */}
-      <Link
-        href="/"
-        className="absolute top-6 left-6 inline-flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-colors"
+      {/* Back Home (slide in from left) */}
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="absolute top-6 left-6"
       >
-        <IoIosArrowRoundBack className="text-2xl" />
-        <span className="font-medium">Back Home</span>
-      </Link>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-colors duration-200 font-medium"
+        >
+          <IoIosArrowRoundBack className="text-2xl" />
+          <span>Back Home</span>
+        </Link>
+      </motion.div>
 
-      {/* Content */}
-      <div className="max-w-xl space-y-6">
+      {/* Content (zoom in) */}
+      <motion.div
+        initial={{ scale: 0.25, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="max-w-xl space-y-6"
+      >
         <div className="flex justify-center">
           <Film className="text-blue-400 w-16 h-16" />
         </div>
@@ -37,7 +50,7 @@ export default function NotePage() {
         <p className="text-gray-500 italic">
           — Made for movie discovery and entertainment lovers 🎥
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 }
