@@ -12,7 +12,7 @@ export default function NotePage() {
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="absolute top-6 left-6"
       >
         <Link
@@ -28,7 +28,7 @@ export default function NotePage() {
       <motion.div
         initial={{ scale: 0.25, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="max-w-xl space-y-6"
       >
         <div className="flex justify-center">
